@@ -22,4 +22,5 @@ fastapi
 uvicorn
 langserve
 arxiv
+duckduckgo-search
 wikipedia
