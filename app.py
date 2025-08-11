@@ -10,8 +10,13 @@ from langchain.callbacks import StreamlitCallbackHandler
 from langchain_groq import ChatGroq
 
 # Load environment variables
-load_dotenv()
-os.environ['HF_TOKEN'] = os.getenv('HF_TOKEN')
+# Load Hugging Face token from Streamlit secrets
+hf_token = st.secrets.get("HF_TOKEN")
+if not hf_token:
+    st.error("❌ Hugging Face token not found in secrets!")
+    st.stop()
+
+os.environ["HF_TOKEN"] = hf_token
 
 # Load embeddings
 embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
@@ -62,3 +67,4 @@ if (prompt := st.chat_input(placeholder="What is machine learning?")):
         response = search_agent.run(prompt, callbacks=[st_cb])  # Pass the `prompt`, not `messages`
         st.session_state.messages.append({'role': 'assistant', "content": response})
         st.write(response)
+
