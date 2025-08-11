@@ -23,12 +23,11 @@ os.environ["HF_TOKEN"] = hf_token
 embeddings = HuggingFaceEmbeddings(
     model_name="sentence-transformers/all-MiniLM-L6-v2",
     model_kwargs={
-        "device": "cpu",                # No GPU in Streamlit Cloud usually
-        "low_cpu_mem_usage": False,     # Prevent meta tensors
-        "torch_dtype": "float32"        # Ensure compatible dtype
-    },
-    encode_kwargs={"normalize_embeddings": False}
+        "device": "cpu",          # Works fine in Streamlit Cloud
+        "torch_dtype": "float32"  # Avoids mixed precision problems
+    }
 )
+
 
 # Setup tools
 wiki_wrapper = WikipediaAPIWrapper(top_k_results=1, doc_content_chars_max=250)
@@ -76,6 +75,7 @@ if (prompt := st.chat_input(placeholder="What is machine learning?")):
         response = search_agent.run(prompt, callbacks=[st_cb])  # Pass the `prompt`, not `messages`
         st.session_state.messages.append({'role': 'assistant', "content": response})
         st.write(response)
+
 
 
 
