@@ -9,7 +9,7 @@ from langchain.agents import initialize_agent, AgentType
 from langchain.callbacks import StreamlitCallbackHandler
 from langchain_groq import ChatGroq
 
-# # Load environment variables
+# # Load environment variables##
 # # Load Hugging Face token from Streamlit secrets
 # hf_token = st.secrets.get("HF_TOKEN")
 # if not hf_token:
@@ -75,6 +75,7 @@ if (prompt := st.chat_input(placeholder="What is machine learning?")):
         response = search_agent.run(prompt, callbacks=[st_cb])  # Pass the `prompt`, not `messages`
         st.session_state.messages.append({'role': 'assistant', "content": response})
         st.write(response)
+
 
 
 
