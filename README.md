@@ -4,14 +4,13 @@ emoji: 🚀
 colorFrom: red
 colorTo: red
 sdk: streamlit
-sdk_version: "latest"
+sdk_version: "1.35.0"
 app_file: app.py
-app_port: 8501
-tags:
-- streamlit
 pinned: false
-short_description: Streamlit template space
 license: apache-2.0
+tags:
+  - streamlit
+short_description: Streamlit template space
 ---
 
 # Search-Engine-With-Langchain-Tools-And-Agents
