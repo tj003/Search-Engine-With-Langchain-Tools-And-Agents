@@ -3,7 +3,7 @@ title: Search Engine LLM
 emoji: 🚀
 colorFrom: red
 colorTo: red
-sdk: docker
+sdk: Streamlit
 sdk_version: "latest"
 app_file: app.py
 app_port: 8501
