@@ -31,3 +31,5 @@ Powered by HuggingFace embeddings and capable of streaming LLM responses interac
 ⚡ Fast inference using Groq's LLaMA3-8B-8192  
 🧠 HuggingFace sentence embeddings support  
 💾 Session-based chat history
+
+Huggingface Deployed Link - https://huggingface.co/spaces/TJ003/Search_Engine_LLM
